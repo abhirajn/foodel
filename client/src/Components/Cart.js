@@ -16,11 +16,11 @@ export default function Cart() {
   // date.stringify();
   let new_date = date.slice(4,15);
   let time = date.slice(16, 24)
- 
+  const { REACT_APP_URL } = process.env;
   const handlleSubmit = async (e) => {
     // sumne = true;
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/dis/myorders" , {
+    const response = await fetch(REACT_APP_URL+"/dis/myorders" , {
       method : 'POST',
       headers: {
         'Content-Type': 'application/json'

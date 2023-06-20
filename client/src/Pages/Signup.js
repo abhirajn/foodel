@@ -3,9 +3,10 @@ import { Link  , useNavigate} from 'react-router-dom'
 export default function Signup() {
   const navigate = useNavigate();
 const [cred , setcred] = useState({email : "" , password: "" , location : ""})
+const { REACT_APP_URL } = process.env;
   const handleSubmit = async (e) =>{
   e.preventDefault();
-  const response = await fetch("http://localhost:5000/api/create" , {
+  const response = await fetch(REACT_APP_URL+"/api/create" , {
     method : 'POST',
     headers: {
       'Content-Type': 'application/json'

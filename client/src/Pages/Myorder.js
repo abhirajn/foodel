@@ -14,10 +14,10 @@ export default function Myorder() {
 
 
   const [hist, setHist] = useState([])
-
+  const { REACT_APP_URL } = process.env;
   useEffect(() => {
     // console.log("here")
-    fetch("http://localhost:5000/api/myordersdisplay", {
+    fetch(REACT_APP_URL+"/api/myordersdisplay", {
        method:"GET"
      }).then((res)=> res.json()).then((data)=>{
        data.map((anodata)=>{

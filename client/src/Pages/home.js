@@ -3,17 +3,22 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbarr from "../Components/Navbar";
 import Cards from "../Components/Cards";
+
 // import Carousel from "../Components/Carousel";
 import { useEffect, useState } from "react";
+// import {} from 'dotenv/config'
+// import 'babel-polyfill';
+// import dotenv from 'dotenv'
+// dotenv.config();
 // import Cart from "../Components/Cart";
-
+// require('dotenv').config();
 const App = () => {
   const [search, setSearch] = useState([]);
   const [cat, setCat] = useState([]);
   const [food, setFood] = useState([]);
-
+  const { REACT_APP_URL } = process.env;
   const loadData = async () => {
-    let response = await fetch("http://localhost:5000/dis/foodData", {
+    let response = await fetch( REACT_APP_URL +"/dis/foodData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
