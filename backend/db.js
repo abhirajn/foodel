@@ -2,9 +2,10 @@
 const mongoose = require('mongoose');
 const express = require("express");
 const router = express.Router()
+require("dotenv").config();
 router.use(express.json())
 // var sumne;
-const mongodb = async(  ) => {await mongoose.connect("mongodb+srv://abhi:abhi@cluster0.m0kddd4.mongodb.net/foodel" , {useNewUrlParser : true }, async(err , result)=>{
+const mongodb = async(  ) => {await mongoose.connect(process.env.MONGO_URL , {useNewUrlParser : true }, async(err , result)=>{
 if(err){
     console.log("error")
     console.log(err);

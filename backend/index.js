@@ -2,7 +2,7 @@
 
 const bodyParser = require('body-parser');
 const express = require('express');
-
+const cors  =require('cors')
 
 // import  express  from 'express';
 // const pageController = require('./Routes/Display');
@@ -10,6 +10,7 @@ const express = require('express');
 // const router = express.Router();
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use((req,res,next) =>{
     res.setHeader("Access-Control-Allow-Origin" , "http://localhost:3000");
@@ -36,7 +37,7 @@ app.use('/api'  , require('./db'));
 
 
 
-app.listen(5000 , () =>{
+app.listen(process.env.PORT || 5000 , () =>{
     console.log("port started");
     // console.log(sumne)
 })
